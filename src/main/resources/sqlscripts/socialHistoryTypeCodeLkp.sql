@@ -1,0 +1,8 @@
+insert into social_history_type_code (id, code, display_name, code_system_name, code_system) values (1, 'F11.20', 'Opioid Use Disorder, Moderate or Severe', 'ICD-10', '2.16.840.1.113883.6.3');
+insert into social_history_type_code (id, code, display_name, code_system_name, code_system) values (2, 'F14.20', 'Cocaine Use Disorder, Moderate or Severe', 'ICD-10', '2.16.840.1.113883.6.3');
+insert into social_history_type_code (id, code, display_name, code_system_name, code_system) values (3, 'F12.20', 'Cannabis Use Disorder, Moderate or Severe', 'ICD-10', '2.16.840.1.113883.6.3');
+insert into social_history_type_code (id, code, display_name, code_system_name, code_system) values (4, 'F33.x', 'Major Depressive Disorder, Recurrent Episode', 'ICD-10', '2.16.840.1.113883.6.3');
+insert into social_history_type_code (id, code, display_name, code_system_name, code_system) values (5, 'F41.1', 'Generalized Anxitey Disorder', 'ICD-10', '2.16.840.1.113883.6.3');
+insert into social_history_type_code (id, code, display_name, code_system_name, code_system) values (6, 'F31.xx', 'Bipolar I Disorder, Manic', 'ICD-10', '2.16.840.1.113883.6.3');
+insert into social_history_type_code (id, code, display_name, code_system_name, code_system) values (7, 'F43.10', 'Posttraumatic Stress Didorder', 'ICD-10', '2.16.840.1.113883.6.3');
+insert into social_history_type_code (id, code, display_name, code_system_name, code_system) values (8, 'F10.20', 'Alcohol Use Disorder, Moderate or Severe', 'ICD-10', '2.16.840.1.113883.6.3');

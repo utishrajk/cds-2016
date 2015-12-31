@@ -1,0 +1,36 @@
+package weka.rules
+
+import com.feisystems.bham.decision.util.RecommendationUtil;
+import com.feisystems.bham.domain.decisionfacts.*
+import java.util.HashSet;
+import java.util.Set;
+import com.feisystems.bham.weka.*;
+
+global com.feisystems.bham.domain.decisionfacts.RuleExecutionContainer ruleExecutionContainer
+
+rule "Opioid Problem"
+when
+    $patient: Patient($administrativeGenderCode:administrativeGenderCode, $age:age, $race:raceCode, $zipCode:zipCode)
+    $problem: ProblemCode($pCode: code, $pCodeSystem:codeSystem)
+    $socialHistory: SocialHistoryCode($sCode: code)
+    eval(RecommendationUtil.isOpioid($sCode))
+then
+	Set objectives = new HashSet();
+	objectives.add("Client is no longer exhibiting any signs or symptons of subtance intoxication or withdrawal");
+	objectives.add("Client is able to verbalize adaptive coping strategies as alternative to substance use in response to stress ");
+	objectives.add("Client is able to verbalize understanding of risks involed in opioid use");
+	
+	PatientGoal patientGoal = new PatientGoal("Reduce fequency and quantity of substances taken","Total abstinence from all illicit opioid use");
+	PatientObjective objective = new PatientObjective();
+	ProcedureCode procedureCode = new ProcedureCode();
+
+	LogisticRegression logisticRegression = new LogisticRegression($age, $administrativeGenderCode, $zipCode, $race, $sCode, $pCode );
+    procedureCode.setCode(logisticRegression.getSuggestedProcedure());
+
+	ruleExecutionContainer.addExecutionResponse(new RuleExecutionResponse(patientGoal, objectives, procedureCode, logisticRegression.getDistributionList()));
+end
+
+
+
+
+

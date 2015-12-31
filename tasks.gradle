@@ -1,0 +1,8 @@
+task copyConfiguration << {
+
+	copy {
+		from "src/main/environment/local"
+		into "src/main/resources/META-INF/spring"
+		include "**/*"
+	}
+}

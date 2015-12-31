@@ -1,0 +1,52 @@
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+target
+node
+src/main/webapp/source/target
+src/main/webapp/vendor
+buildsrc/build
+src/main/resources/META-INF/spring/*.properties
+
+# Generated files by the grunt build
+src/main/webapp/assets
+src/main/webapp/src
+src/main/webapp/*.html
+src/main/webapp/*.js
+src/main/webapp/*.json
+
+# Eclipse Artifacts #
+.settings
+.project
+.classpath
+.metadata
+.springBeans
+# WebStorm/IntelliJ IDEA Artifacts #
+.idea
+# Npm modules
+node_modules
+# Libraries
+# Gradle Artifacts #
+.gradle
+build
+# Generated Artifacts #
+.merge_file*
+.sass-cache
+bin
+*.class
+*.log
+# Package Files #
+*.jar
+*.war
+*.ear
+# Others #
+*.roo
+*.tmp
+*.zip
+*.gz
+*.DS_Store
+.README.md.html

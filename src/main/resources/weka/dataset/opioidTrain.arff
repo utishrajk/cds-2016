@@ -1,0 +1,173 @@
+@relation opioid
+
+
+% For Each Attribute: 
+%   1. Age group or NUMERIC in years
+%	2 = Age 18 to 24 years old 
+%	3 = Age 25 to 34 years old 
+%	4 = Age 35 to 44 years old 
+%	5 = Age 45 to 54 years old 
+%	6 = Age 55 to 64 years old 
+%	7 = Age 65 years old or greater
+%    2. gender: Female = Female and Male = Male
+%    3. zipcode as a proxy for socio-economic status
+%	21229 and 21226 are in Baltimore City
+%	21075 (Elkridge) and 21046 (Columbia) are in Howard County
+%    4. race
+%		1002-5 = American Indian or Alaska Native'
+%		2028-9 = Asian'
+%		2054-5 = Black or African American'
+%		2076-8 = Native Hawaiian or Other Pacific Islander'
+%		2106-3 = White'
+%
+%    5. social history code in DSM5 (ICD-10)
+%
+%		F11.20 = Opioid Use Disorder, Moderate or Severe
+%		F14.20 = Cocaine Use Disorder, Moderate or Severe
+%		F12.20 = Cannabis Use Disorder, Moderate or Severe
+%		F33.x = Major Depressive Disorder, Recurrent Episode
+%		F41.1 = Generalized Anxitey Disorder
+%		F31.xx = Bipolar I Disorder, Manic
+%		F43.10 = Posttraumatic Stress Didorder
+%		F10.20 = Alcohol Use Disorder, Moderate or Severe
+%
+%
+%    6. condition code in ICD-10
+%
+%		E11 = Type 2 diabetes mellitus
+%		I10 = Hypertension
+%		B20 = Immunodeficiency virus (HIV) disease (infection) 
+%		I11.9 = Heart Disease
+%
+%    7. service code in CPT
+%
+%		H0018 = Behavioral health; short-term residential (non-hospital residential treatment program), without room and board, per diem
+%		H2034 = Alcohol and/or drug abuse halfway house services, per diem
+%		H0004 = Behavioral health counseling and therapy, per 15 minutes
+%		H0009 = Alcohol and/or drug services; acute detoxification (hospital inpatient)
+%		H0006 = Alcohol and/or drug services; case management
+%
+%
+%    8. health status: YES for improved, NO for not improved
+
+@attribute age {2,3,4,5,6}
+@attribute gender {Female,Male,Trans}
+@attribute zipcode {21046,21075,21229,21224}
+@attribute race {1002-5,2028-9,2054-5,2076-8,2106-3}
+@attribute socialhistory {F11.20,F14.20,F12.20,F33.x,F43.10,F10.20}
+@attribute condition {E11,I10,B20,I11.9}
+@attribute improved {NO,YES,WORSE}
+@attribute service {H0018,H2034,H0004,H0009,H0006}
+
+@data
+2,Female,21229,2106-3,F11.20,I11.9,NO,H0009
+3,Trans,21224,2028-9,F12.20,E11,YES,H0004
+2,Male,21229,1002-5,F14.20,E11,YES,H0018
+3,Female,21224,2028-9,F11.20,I10,NO,H0006
+2,Male,21046,1002-5,F14.20,I10,WORSE,H0004
+3,Male,21075,2054-5,F43.10,E11,NO,H0006
+4,Female,21046,2054-5,F11.20,E11,YES,H0009
+6,Male,21075,2106-3,F14.20,E11,NO,H0004
+2,Trans,21224,1002-5,F11.20,I10,NO,H0018
+6,Female,21046,2054-5,F14.20,E11,YES,H0004
+2,Male,21224,2054-5,F33.x,E11,YES,H2034
+2,Female,21229,2106-3,F11.20,I11.9,NO,H0018
+3,Trans,21224,2028-9,F12.20,E11,YES,H0004
+2,Male,21229,1002-5,F14.20,E11,YES,H0018
+3,Female,21224,2028-9,F11.20,I10,NO,H0006
+2,Male,21046,1002-5,F14.20,I10,WORSE,H0004
+3,Male,21075,2054-5,F43.10,E11,NO,H0006
+4,Female,21046,2054-5,F11.20,E11,YES,H0018
+6,Male,21075,2106-3,F14.20,E11,NO,H0004
+2,Trans,21224,1002-5,F11.20,I10,NO,H0018
+6,Female,21046,2054-5,F14.20,E11,YES,H0004
+2,Male,21224,2054-5,F33.x,E11,YES,H0018
+2,Trans,21224,1002-5,F14.20,I10,NO,H0004
+6,Male,21046,2054-5,F11.20,E11,YES,H0018
+2,Female,21224,1002-5,F12.20,E11,YES,H0004
+2,Male,21224,2106-3,F14.20,E11,NO,H0018
+5,Female,21229,2054-5,F43.10,I10,YES,H0018
+5,Male,21229,1002-5,F11.20,B20,NO,H0004
+6,Female,21224,2028-9,F10.20,B20,YES,H0009
+5,Male,21046,2106-3,F14.20,I11.9,WORSE,H0006
+4,Female,21229,2106-3,F14.20,I11.9,YES,H0004
+6,Male,21224,2028-9,F33.x,B20,NO,H0009
+3,Female,21224,1002-5,F12.20,I11.9,NO,H0009
+6,Female,21229,2054-5,F43.10,B20,YES,H0004
+6,Male,21224,2054-5,F12.20,B20,WORSE,H0009
+2,Female,21224,1002-5,F11.20,I10,YES,H0018
+5,Female,21229,2054-5,F12.20,E11,WORSE,H0018
+2,Male,21224,1002-5,F14.20,I11.9,YES,H0018
+4,Trans,21224,2054-5,F11.20,I10,NO,H0018
+2,Male,21075,1002-5,F14.20,I11.9,YES,H0006
+6,Trans,21046,2054-5,F12.20,I11.9,YES,H2034
+5,Male,21075,2054-5,F11.20,I10,WORSE,H0006
+4,Male,21075,1002-5,F12.20,E11,YES,H2034
+3,Female,21046,1002-5,F11.20,E11,YES,H0006
+4,Male,21224,2028-9,F43.10,I10,NO,H2034
+4,Trans,21224,1002-5,F12.20,I11.9,NO,H0004
+3,Female,21224,2028-9,F43.10,I10,YES,H2034
+2,Male,21224,2106-3,F10.20,E11,NO,H0018
+3,Female,21229,1002-5,F10.20,I11.9,YES,H0004
+3,Male,21224,2106-3,F14.20,E11,YES,H0018
+2,Male,21224,2106-3,F43.10,E11,NO,H0018
+6,Female,21224,1002-5,F11.20,B20,NO,H0004
+6,Male,21229,1002-5,F12.20,I11.9,YES,H0009
+5,Female,21224,2028-9,F33.x,B20,NO,H0009
+6,Female,21224,1002-5,F11.20,I11.9,NO,H0009
+5,Male,21224,2028-9,F12.20,I10,YES,H0006
+6,Female,21229,1002-5,F11.20,B20,YES,H0009
+5,Male,21075,1002-5,F12.20,I10,NO,H0009
+6,Trans,21224,2106-3,F11.20,I11.9,NO,H0009
+2,Female,21229,2106-3,F14.20,I11.9,YES,H0018
+3,Female,21075,2028-9,F11.20,E11,NO,H0006
+2,Male,21224,2028-9,F14.20,I10,YES,H0018
+3,Female,21224,2106-3,F14.20,E11,NO,H0018
+2,Male,21075,2028-9,F33.x,E11,YES,H2034
+6,Female,21046,2028-9,F14.20,I10,NO,H0006
+6,Male,21075,2076-8,F11.20,I11.9,YES,H0004
+4,Male,21075,2076-8,F14.20,E11,YES,H0006
+4,Female,21224,2106-3,F14.20,I10,NO,H0004
+2,Male,21224,1002-5,F11.20,E11,NO,H0006
+3,Trans,21224,2076-8,F11.20,E11,NO,H0004
+2,Female,21229,1002-5,F43.10,E11,YES,H2034
+3,Male,21224,2028-9,F11.20,E11,NO,H0018
+2,Male,21229,2106-3,F43.10,E11,YES,H0018
+2,Female,21224,2076-8,F11.20,E11,YES,H0004
+4,Male,21229,2028-9,F43.10,E11,YES,H0018
+6,Female,21224,1002-5,F10.20,I11.9,NO,H0009
+6,Male,21229,2076-8,F33.x,B20,NO,H0009
+3,Female,21229,2028-9,F11.20,B20,NO,H0004
+6,Female,21224,1002-5,F33.x,I11.9,NO,H0009
+2,Male,21224,2028-9,F10.20,B20,NO,H0004
+6,Female,21229,1002-5,F10.20,B20,YES,H0006
+4,Female,21224,2106-3,F11.20,I11.9,NO,H0009
+6,Male,21075,2106-3,F11.20,B20,YES,H0006
+2,Male,21224,1002-5,F14.20,I10,NO,H0018
+5,Female,21075,1002-5,F11.20,E11,NO,H0018
+5,Male,21224,2076-8,F14.20,E11,YES,H0018
+2,Female,21224,2076-8,F11.20,I10,NO,H0018
+2,Male,21075,1002-5,F14.20,I10,YES,H2034
+3,Male,21046,2106-3,F11.20,I11.9,YES,H0004
+3,Female,21046,1002-5,F14.20,E11,YES,H2034
+2,Male,21075,2076-8,F12.20,I10,NO,H2034
+3,Female,21224,2106-3,F33.x,E11,NO,H0004
+2,Male,21229,1002-5,F33.x,I11.9,YES,H2034
+3,Male,21229,2076-8,F11.20,I10,YES,H0004
+2,Female,21224,2076-8,F12.20,I11.9,YES,H0004
+2,Male,21224,2076-8,F11.20,E11,NO,H0006
+4,Female,21075,2106-3,F12.20,E11,YES,H0018
+4,Male,21224,1002-5,F12.20,I11.9,YES,H0006
+2,Male,21224,2076-8,F43.10,I11.9,NO,H0018
+6,Female,21075,1002-5,F11.20,I11.9,YES,H0006
+4,Female,21224,2076-8,F14.20,B20,YES,H0009
+5,Male,21224,2106-3,F10.20,I11.9,NO,H0006
+5,Female,21075,1002-5,F14.20,B20,YES,H0006
+6,Male,21229,2076-8,F10.20,B20,NO,H0009
+3,Male,21224,2106-3,F14.20,I11.9,YES,H0006
+2,Male,21075,2076-8,F11.20,B20,NO,H0009
+3,Female,21224,2076-8,F14.20,I11.9,YES,H0006
+
+
+
+

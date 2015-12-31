@@ -1,0 +1,375 @@
+
+<div ng-include="headnavbar" ng-cloak></div>
+
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try{ace.settings.check('main-container' , 'fixed')}catch(e){}
+    </script>
+
+    <div class="main-container-inner">
+        <a class="menu-toggler" id="menu-toggler" href="" ng-class="{'display': enableDropDownMenu}" ng-click="toggleDropDownMenu()">
+            <span class="menu-text" ></span>
+        </a>
+
+        <div ng-include="sidenavbar" ng-cloak ></div>
+
+        <div class="main-content">
+
+            <div ng-include="breadcrums" ng-cloak></div>
+
+            <div class="page-content">
+                <div class="page-header">
+                    <h1>
+                        <span ng-bind="currentPage"> </span>
+                        <small>
+                            <i class="icon-double-angle-right"></i>
+                            overview
+                        </small>
+                    </h1>
+                </div><!-- /.page-header -->
+                <div class="row">
+                    <div class="col-xs-12">
+                        <!-- PAGE CONTENT BEGINS -->
+
+
+                        <form novalidate name="organizationProfileForm" class="formValidation form-horizontal" >
+
+                            <ul class="nav nav-tabs padding-16">
+                                <li ng-class="{'active' : activeTab === 'organizationProfile' }" id="organization-profile-tab">
+                                    <a data-toggle="tab" class="tab selected" rel="tab1" ng-click="switchTabTo('organizationProfile')">
+                                        <i class="blue icon-info bigger-125"></i>
+                                        Organization Profile
+                                    </a>
+                                </li>
+
+                                <li ng-class="{'active' : activeTab === 'contact'}" id="organization-contact-tab">
+                                    <a data-toggle="tab" class="tab" rel="tab2" ng-click="switchTabTo('contact')">
+                                        <i class="blue icon-envelope-alt bigger-125"></i>
+                                        Contact
+                                    </a>
+                                </li>
+
+                                <li ng-class="{'active' : activeTab === 'services' }" id="organization-services-tab">
+                                    <a data-toggle="tab" class="tab" rel="tab3" ng-click="switchTabTo('services')">
+                                        <i class="blue icon-key bigger-125"></i>
+                                        Services
+                                    </a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content profile-edit-tab-content">
+
+                                <div id="tab1" class="tabContent selected" ng-show="activeTab === 'organizationProfile'">
+                                    <h4 class="header blue bolder smaller">General</h4>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="organizationName">Organization Name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="organizationName" id="organizationName" ng-model="organizationProfile.orgName"  required ng-minlength="5" ng-maxlength="30" required placeholder="Organization Name" />
+                                        </div>
+                                    </div>
+
+                                    <div class="space-4"></div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="nationalProviderId">Orgnization NPI</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="nationalProviderId" id="nationalProviderId" ng-model="oranizationProfile.npi"  required ng-minlength="1" ng-maxlength="30" required placeholder="Orgnization National Provider ID" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="officialNamePrifix">Authorized official Name prefix</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="officialNamePrifix" id="officialNamePrifix" ng-model="organizationProfile.authorizedOfficialNamePrefix"   ng-maxlength="30" required placeholder="Authorized official Name prefix" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="officialLastName">Authorized official Last Name</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="officialLastName" id="officialLastName" ng-model="organizationProfile.authorizedOfficialLastName"   ng-maxlength="30" required placeholder="Authorized official Last Name" />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="officialTelephoneNumnber">Authorized official Telephone Number</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="officialTelephoneNumnber" id="officialTelephoneNumnber" ng-model="organizationProfile.authorizedOfficialTelephoneNumber"   ng-maxlength="30" required placeholder="Authorized official Telephone Number" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="tab2" class="tabContent selected" ng-show="activeTab === 'contact'">
+
+                                    <div class="space"></div>
+                                    <h4 class="header blue bolder smaller">Contact</h4>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="email">Email</label>
+                                        <div class="col-sm-9">
+                                            <span class="input-icon input-icon-right">
+                                                <input type="email" name="email" id="email" ng-model="organizationProfile.email" required/>
+                                                <i class="icon-envelope"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="space-4"></div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-website">Website</label>
+
+                                        <div class="col-sm-9">
+                                            <span class="input-icon input-icon-right">
+                                                <input type="url" id="form-field-website" ng-model="organizationProfile.website" placeholder="http://www.bham.com/" />
+                                                <i class="icon-globe"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="space-4"></div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-phone">Phone</label>
+
+                                        <div class="col-sm-9">
+                                            <span class="input-icon input-icon-right">
+                                                <input class="input-medium input-mask-phone" type="text" id="form-field-phone" required ng-model="organizationProfile.mailingAddressTelephoneNumber"  />
+                                                <i class="icon-phone icon-flip-horizontal"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="organizationProfileFax">Fax</label>
+
+                                        <div class="col-sm-9">
+                                            <span class="input-icon input-icon-right">
+                                                <input class="input-medium input-mask-phone"  type="text" name="organizationProfileFax" required id="organizationProfileFax" ng-model="organizationProfile.mailingAddressFaxNumber"/>
+                                                <i class="icon-phone icon-flip-horizontal"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="space"></div>
+                                    <h4 class="header blue bolder smaller">Mailing Address</h4>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="addressLine1">Line1</label>
+                                        <div class="col-sm-9">
+                                            <input type="text" name="addressLine1" id="addressLine1"  class="col-xs-12 col-sm-4" name="addressLine1" required ng-model="organizationProfile.firstLineMailingAddress" required  placeholder="AddressLine1" />
+                                        </div>
+                                    </div>
+
+                                    <div class="space-4"></div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="addressLine2">Line2</label>
+
+                                        <div class="col-sm-9">
+                                            <input class="col-xs-12 col-sm-4" type="text" name="addressLine2" id="addressLine2" ng-model="organizationProfile.secondLineMailingAddress" placeholder="AddressLine2" value="AddressLine2" />
+                                        </div>
+                                    </div>
+
+                                    <div class="space-4"></div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-city">City</label>
+                                        <div class="col-sm-9">
+                                            <input class="col-xs-12 col-sm-2" type="text" id="form-field-city" ng-model="organizationProfile.mailingAddressCityName" required placeholder="City" value="Columbia" />
+                                        </div>
+                                    </div>
+
+                                    <div class="space-4"></div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="organizationProfileState">State</label>
+                                        <div class="col-sm-9">
+                                            <select ng-model="organizationProfile.mailingAddressStateName" id="organizationProfileState" name="organizationProfileState" >
+                                                <option value="">-- choose state --</option>
+                                                <option ng-repeat="s in states" value="{{s.code}}" ng-selected="s.code == organizationProfile.mailingAddressStateName">{{s.displayName}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="organizationProfileCountry">Country</label>
+                                        <div class="col-sm-9">
+                                            <select ng-model="organizationProfile.mailingAddressCountryName" id="organizationProfileCountry" name="organizationProfileCountry" >
+                                                <option value="">-- choose Country --</option>
+                                                <option ng-repeat="c in countries" value="{{c.code}}" ng-selected="c.code == organizationProfile.mailingAddressCountryName">{{c.displayName}}</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="space-4"></div>
+
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label no-padding-right" for="form-field-postalcode">Postal Code</label>
+
+                                        <div class="col-sm-9">
+                                            <input class="col-xs-12 col-sm-1" type="text" id="form-field-postalcode" required ng-model="organizationProfile.mailingAddressPostalCode" placeholder="Zip Code" value="" />
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div id="tab3" class="tabContent selected formValidation" ng-show="activeTab === 'services'">
+
+                                    <div class="space-10"></div>
+                                    <h4 class="header blue bolder smaller">Service List</h4>
+
+
+                                    <div class="table-responsive">
+                                        <div class="table-header">
+                                            &nbsp;
+                                        </div>
+                                        <div class="modal-footer no-margin-top" >
+                                            <div class="col-sm-3 " >
+                                                <div class="dataTables_info pull-left no-margi" >
+                                                    <label>
+                                                        Display
+                                                        <select size="1" ng-model="pageSize" ng-change="onPageSizeChange()">
+                                                            <option value="10">10</option>
+                                                            <option value="25">25</option>
+                                                            <option value="50">50</option>
+                                                            <option value="100">100</option>
+                                                        </select>
+                                                        Reminders
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-9">
+                                                <div class="visible-md visible-lg hidden-sm hidden-xs action-buttons field-height">
+                                                    <label> Add Organization</label> &nbsp;
+                                                    <a class="blue" href="" id="organization-add-btn">
+                                                        <i class="icon-plus-sign purple bigger-130"></i>
+                                                    </a>
+                                                    <span > | </span>
+                                                    <label>Search Service</label> &nbsp;&nbsp;
+                                                    <select size="1" ng-model="searchBy" ng-change="onSearch()" >
+                                                        <option value="">-- All columns --</option>
+                                                        <option value="subject">Service Name</option>
+                                                        <option value="patient">Service description</option>
+                                                        <option value="messageType">Procedure Code Lookup</option>
+                                                    </select>
+                                                    <input type="text" name="search" ng-model="criteria" ng-change="onSearch()" placeholder="Search table" size="15"/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-body no-padding" >
+                                            <table id="sample-table-1" class="table table-striped table-bordered table-hover no-bottom-margin">
+                                                <thead>
+                                                <tr>
+                                                    <th ng-click="sort('date')">
+                                                        Service Name  &nbsp;<i ng-class="{'icon-chevron-up': isSortUp('name'), 'icon-chevron-down': isSortDown('name')}"></i>
+                                                    </th>
+                                                    <th ng-click="sort('from')">
+                                                        Service Description &nbsp;<i ng-class="{'icon-chevron-up': isSortUp('description'), 'icon-chevron-down': isSortDown('description')}"></i>
+                                                    </th>
+                                                    <th ng-click="sort('subject')">
+                                                        Procedure Code Lookup &nbsp; <i ng-class="{'icon-chevron-up': isSortUp('procedureCode'), 'icon-chevron-down': isSortDown('procedureCode')}"></i>
+                                                    </th>
+                                                    <th ng-click="sort('patient')">
+                                                        Treatment Domain &nbsp; <i ng-class="{'icon-chevron-up': isSortUp('treatmentDomain'), 'icon-chevron-down': isSortDown('treatmentDomain')}"></i>
+                                                    </th>
+                                                    <th >Action</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr ng-repeat="service in filteredService = ( services |filter:composedCriteria | orderBy:natural(sortField):reverse )  | pagination:pageNo:pageSize">
+                                                    <td>
+                                                        {{ service.name }}
+                                                    </td>
+                                                    <td>
+                                                        {{ service.description}}
+                                                    </td>
+                                                    <td> {{ service.procedureCode}}</td>
+                                                    <td> {{ service.treatmentDomain }} </td>
+                                                    <td>
+                                                        <!--<show-patient patient="patient"  id="patient-show-{{$index}}" ></show-patient>-->
+                                                        <!--<a class="green" href="#/patients/edit/{{patient.id}}" id="patient-edit-{{$index}}">-->
+                                                            <!--<i class="icon-pencil bigger-130"></i>-->
+                                                        <!--</a>-->
+                                                        <!--<delete-patient patientid="{{ patient.id }}" name="{{ patient.fullName }}" ondelete="deletePatient(patientId)" ng-hide="isDemographics" id="patient-delete-{{$index}}"></delete-patient>-->
+                                                        <!--<a class="blue" href="#/patient/{{patient.id}}/treatmentplan" id="patient-treatmentplan-{{$index}}">-->
+                                                            <!--<i class="icon-stethoscope bigger-130"></i>-->
+                                                        <!--</a>-->
+                                                    </td>
+                                                </tr>
+                                                <tr ng-show="filteredServices.length == 0">
+                                                    <td colspan="8" class="center"> No Service found </td>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                            <div class="modal-footer no-margin-top"  >
+                                                <div class="col-sm-6" >
+                                                 <span ng-show="filteredServices.length > 0 " >
+                                                    <div class="dataTables_info pull-left no-margi"> Showing {{startRecord}} to {{showPageSize}} of {{filteredServices.length}} Patients </div>
+                                                 </span>
+                                                </div>
+                                                <div class="col-sm-6">
+                                                    <span ng-show="filteredServices.length > 0" >
+                                                        <ul class="pagination pull-right no-margin pagination-highlight">
+                                                            <li class="prev" >
+                                                                <a ng-click="setActivePage(firstPage)">
+                                                                    <i class="icon-double-angle-left"></i>
+                                                                </a>
+                                                            </li>
+
+                                                            <li ng-repeat="page in pages" ng-class="{'active': page==pageNo}">
+                                                                <a ng-click="setActivePage(page)" >{{page+1}}</a>
+                                                            </li>
+
+                                                            <li class="next" >
+                                                                <a ng-click="setActivePage(lastPage-1)">
+                                                                    <i class="icon-double-angle-right"></i>
+                                                                </a>
+                                                            </li>
+                                                        </ul>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                 </div>
+
+                </div>
+                <!--<pre>{{toJSON(caremanagerForm)}}</pre>-->
+                <!--</div>-->
+
+                <div class="clearfix form-actions">
+                    <div class="col-md-offset-3 col-md-9">
+                        <button class="btn btn-info" type="button" ng-click="save(organizationProfile)" ng-disabled="organizationProfileForm.$invalid" id="organizationProfile-save-btn">
+                            <i class="icon-ok bigger-110"></i>
+                            Save
+                        </button>
+                        <button class="btn" type="reset">
+                            <i class="icon-undo bigger-110"></i>
+                            Reset
+                        </button>
+                    </div>
+                </div>
+
+                </form>
+
+
+                <!-- PAGE CONTENT ENDS -->
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.page-content -->
+
+            <!--<div ng-include="loginpage" ></div>-->
+
+        </div><!-- /.main-content -->
+
+    </div><!-- /.main-container-inner -->
+
+    <a href="" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse" ng-click="gotoTop()">
+        <i class="icon-double-angle-up icon-only bigger-110"></i>
+    </a>
+</div><!-- /.main-container -->

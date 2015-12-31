@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BHAM</title>
+  </head>
+  <body>
+        <table>
+          <tr>
+            <td>
+              <p>
+                  Your registration is complete when you <a href="http://localhost:9001/bham/individualproviders/verify/${model.getEncodedToken()}">click here</a> to validate your email address.
+              </p>
+            </td>
+          </tr>
+        </table>
+  </body>
+</html>

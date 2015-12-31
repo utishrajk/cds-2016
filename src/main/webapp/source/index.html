@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html lang="en" >
+    <head>
+
+    <meta charset="utf-8" />
+    <title>BHAM</title>
+
+    <meta name="_csrf" content="${_csrf.token}"/>
+    <!-- default header name is X-CSRF-TOKEN -->
+    <meta name="_csrf_header" content="${_csrf.headerName}"/>
+
+    <!-- ... -->
+    <meta name="description" content="overview &amp; stats" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- basic styles -->
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+    <!--[if IE 7]>
+    <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+    <![endif]-->
+
+    <!-- page specific plugin styles -->
+
+    <link rel="stylesheet" href="assets/css/jquery-ui-1.10.3.full.min.css" />
+    <link rel="stylesheet" href="assets/css/datepicker.css" />
+
+    <!-- fonts -->
+
+    <link rel="stylesheet" href="assets/css/ace-fonts.css" />
+
+    <!-- ace styles -->
+
+    <link rel="stylesheet" href="assets/css/ace.min.css" />
+    <link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+    <link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+
+    <!-- BHAM styles-->
+    <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
+    <link rel="stylesheet" type="text/css" href="<%= file %>"/>
+    <% }); %>
+
+    <link rel="stylesheet"  type="text/css" href="assets/css/tree-control.css" />
+
+    <!--[if lte IE 8]>
+    <link rel="stylesheet" href="assets/css/ace-ie.min.css" />
+    <![endif]-->
+
+
+
+    <!-- <link href="http://visjs.org/dist/vis.css" rel="stylesheet" type="text/css" /> -->
+
+    <!-- inline styles related to this page -->
+
+    <!-- ace settings handler -->
+
+    <script src="assets/js/ace-extra.min.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+    <body  ng-app="bham" ng-controller="AppCtrl" >
+
+        <div ng-view></div>
+
+        <!-- BHAM ANGULARJS RELATED -->
+
+        <!-- compiled JavaScript --><% scripts.forEach( function ( file ) { %>
+        <script type="text/javascript" src="<%= file %>"></script>
+        <% }); %>
+
+        <!-- other scripts -->
+
+        <script type="text/javascript">
+            if("ontouchend" in document) document.write("<script src='assets/js/jquery.mobile.custom.min.js'>"+"<"+"/script>");
+        </script>
+
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/typeahead-bs2.min.js"></script>
+
+        <!-- page specific plugin scripts -->
+
+        <!--[if lte IE 8]>
+        <script src="assets/js/excanvas.min.js"></script>
+        <![endif]-->
+
+        <!--
+        Commented this custom jquery-ui template
+        <script src="assets/js/jquery-ui-1.10.3.custom.min.js"></script>
+        -->
+
+        <script src="assets/js/jquery-ui-1.10.3.full.min.js"></script>
+        <script src="assets/js/jquery.ui.touch-punch.min.js"></script>
+        <script src="assets/js/jquery.slimscroll.min.js"></script>
+        <script src="assets/js/jquery.easy-pie-chart.min.js"></script>
+        <script src="assets/js/jquery.sparkline.min.js"></script>
+
+        <script src="assets/js/flot/jquery.flot.min.js"></script>
+        <script src="assets/js/flot/jquery.flot.pie.min.js"></script>
+        <script src="assets/js/flot/jquery.flot.resize.min.js"></script>
+
+        <script src="assets/js/date-time/bootstrap-datepicker.min.js"></script>
+
+        <!-- ace scripts -->
+
+        <script src="assets/js/ace-elements.min.js"></script>
+        <script src="assets/js/ace.min.js"></script>
+
+    </body>
+</html>
